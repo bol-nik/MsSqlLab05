@@ -1,21 +1,20 @@
-Лабораторная работа №5
+1.	РќР°РїРёС€РёС‚Рµ СЃР»РѕР¶РЅС‹Р№ Р·Р°РїСЂРѕСЃ (СЃ РїРѕРґР·Р°РїСЂРѕСЃР°РјРё), РІРѕР·РІСЂР°С‰Р°СЋС‰РёР№ РёРјРµРЅР° РІСЃРµС… СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ, РїСЂРѕРґР°РІР°РІС€РёС… С‚РѕРІР°СЂ РІ РєРѕР»РёС‡РµСЃС‚РІРµ в‰¤ 75 С€С‚СѓРє.
+2.	РќР°РїРёС€РёС‚Рµ СЃР»РѕР¶РЅС‹Р№ Р·Р°РїСЂРѕСЃ, РєРѕС‚РѕСЂС‹Р№ РІС‹РІРѕРґРёС‚ РЅР°РёРјРµРЅРѕРІР°РЅРёСЏ С‚РѕР»СЊРєРѕ С‚РµС… С‚РѕРІР°СЂРѕРІ, СЃС‚РѕРёРјРѕСЃС‚СЊ РєРѕС‚РѕСЂС‹С… РјРµРЅСЊС€Рµ СЃСЂРµРґРЅРµР№ СЃС‚РѕРёРјРѕСЃС‚Рё РІСЃРµС… РІРёРґРѕРІ РїСЂРѕРґСѓРєС†РёРё.
+3.	РќР°РїРёС€РёС‚Рµ СЃР»РѕР¶РЅС‹Р№ Р·Р°РїСЂРѕСЃ РґР»СЏ РѕРїСЂРµРґРµР»РµРЅРёСЏ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ, Сѓ РєРѕС‚РѕСЂС‹С… РЅРµС‚ РїРѕРґС‡РёРЅРµРЅРЅС‹С…
+4.	РћРїСЂРµРґРµР»РёС‚Рµ С‚СЂРѕР№РєСѓ СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ, РїРѕР»СѓС‡Р°СЋС‰РёС… СЃР°РјС‹Р№ РІС‹СЃРѕРєРёР№ РїСЂРѕС†РµРЅС‚ РєРѕРјРёСЃСЃРёРѕРЅРЅС‹С… РЅР° С„РёСЂРјРµ. Р’С‹РІРµСЃС‚Рё С„Р°РјРёР»РёРё СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ Рё РїСЂРѕС†РµРЅС‚ РєРѕРјРёСЃСЃРёРѕРЅРЅС‹С….
 
-1.	Напишите сложный запрос (с подзапросами), возвращающий имена всех сотрудников, продававших товар в количестве ? 75 штук.
-2.	Напишите сложный запрос, который выводит наименования только тех товаров, стоимость которых меньше средней стоимости всех видов продукции.
-3.	Напишите сложный запрос для определения сотрудников, у которых нет подчиненных
-4.	Определите тройку сотрудников, получающих самый высокий процент комиссионных на фирме. Вывести фамилии сотрудников и процент комиссионных.
+РџР РРњР•Р Р«:
+1.	РќР°Р№С‚Рё СЃРѕС‚СЂСѓРґРЅРёРєР°, РєРѕС‚РѕСЂС‹Р№ РїРѕР»СѓС‡Р°РµС‚ СЃР°РјС‹Р№ РІС‹СЃРѕРєРёР№ РїСЂРѕС†РµРЅС‚ РєРѕРјРёСЃСЃРёРѕРЅРЅС‹С… РЅР° С„РёСЂРјРµ:
 
-ПРИМЕРЫ:
-1.	Найти сотрудника, который получает самый высокий процент комиссионных на фирме:
 select s.sp_name, s.comm, o.office from office o, sperson s
 where o.of_id=s.of_id and s.comm=(select max(comm) from sperson);
 
-2.	Найти сотрудников, у которых комиссионные выше, чем у Алберта Айджа:
+	2.	РќР°Р№С‚Рё СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ, Сѓ РєРѕС‚РѕСЂС‹С… РєРѕРјРёСЃСЃРёРѕРЅРЅС‹Рµ РІС‹С€Рµ, С‡РµРј Сѓ РђР»Р±РµСЂС‚Р° РђР№РґР¶Р°:
 select sp_name, comm from sperson where
-comm > (select comm from sperson where sp_name=’Albert Aidj’);
+comm > (select comm from sperson where sp_name=вЂ™Albert AidjвЂ™);
 
 
-3.Найти сотрудников, у которых комиссионные такие же, как у Родни Джонса:
+3.РќР°Р№С‚Рё СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ, Сѓ РєРѕС‚РѕСЂС‹С… РєРѕРјРёСЃСЃРёРѕРЅРЅС‹Рµ С‚Р°РєРёРµ Р¶Рµ, РєР°Рє Сѓ Р РѕРґРЅРё Р”Р¶РѕРЅСЃР°:
 
 select sp_name, comm
 from sperson 
@@ -23,39 +22,39 @@ where comm = (select comm from sperson where sp_name='Rodny Djons')
 and sp_name!='Rodny Djons';
 
 
-1.	Определить регионы, в котрых средний процент комиссионных выше, чем в Токио:
+1.	РћРїСЂРµРґРµР»РёС‚СЊ СЂРµРіРёРѕРЅС‹, РІ РєРѕС‚СЂС‹С… СЃСЂРµРґРЅРёР№ РїСЂРѕС†РµРЅС‚ РєРѕРјРёСЃСЃРёРѕРЅРЅС‹С… РІС‹С€Рµ, С‡РµРј РІ РўРѕРєРёРѕ:
 select o.office, avg(s.comm) from office o, sperson s
 where o.of_id=s.of_id
 group by o.office
 having avg(s.comm) > (select avg(comm) from sperson where
-of_id=(select of_id from office where office=’Tokyo’));
+of_id=(select of_id from office where office=вЂ™TokyoвЂ™));
 
-2.	Найти сотрудников, у которых комиссионные выше, чем у хотя бы одного сотрудника из Токио:
-А) select sp_name, comm from sperson
+2.	РќР°Р№С‚Рё СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ, Сѓ РєРѕС‚РѕСЂС‹С… РєРѕРјРёСЃСЃРёРѕРЅРЅС‹Рµ РІС‹С€Рµ, С‡РµРј Сѓ С…РѕС‚СЏ Р±С‹ РѕРґРЅРѕРіРѕ СЃРѕС‚СЂСѓРґРЅРёРєР° РёР· РўРѕРєРёРѕ:
+ГЂ) select sp_name, comm from sperson
 where comm > any(select comm from sperson where
-of_id =(select of_id from office where office=’Tokyo’));
+of_id =(select of_id from office where office=вЂ™TokyoвЂ™));
 
-Б) select sp_name, comm from sperson
+Р‘) select sp_name, comm from sperson
 where comm > (select min(comm) from sperson where
-of_id =(select of_id from office where office=’Tokyo’));
+of_id =(select of_id from office where office=вЂ™TokyoвЂ™));
 
-3.	Найти сотрудников, у которых комиссионные выше, чем у каждого( всех) сотрудников из Токио:
-А) select sp_name, comm from sperson
+3.	РќР°Р№С‚Рё СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ, Сѓ РєРѕС‚РѕСЂС‹С… РєРѕРјРёСЃСЃРёРѕРЅРЅС‹Рµ РІС‹С€Рµ, С‡РµРј Сѓ РєР°Р¶РґРѕРіРѕ( РІСЃРµС…) СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ РёР· РўРѕРєРёРѕ:
+ГЂ) select sp_name, comm from sperson
 where comm > all(select comm from sperson where
-of_id =(select of_id from office where office=’Tokyo’));
+of_id =(select of_id from office where office=вЂ™TokyoвЂ™));
 
-Б) select sp_name, comm from sperson
+ГЃ) select sp_name, comm from sperson
 where comm > (select max(comm) from sperson where
-of_id =(select of_id from office where office=’Tokyo’));
+of_id =(select of_id from office where office=вЂ™TokyoвЂ™));
 
-4.	Найти сотрудников, у которых есть хотя бы один подчиненный:
- А)select s2.sp_name, s2.sp_id from sperson s2
+4.	РќР°Р№С‚Рё СЃРѕС‚СЂСѓРґРЅРёРєРѕРІ, Сѓ РєРѕС‚РѕСЂС‹С… РµСЃС‚СЊ С…РѕС‚СЏ Р±С‹ РѕРґРёРЅ РїРѕРґС‡РёРЅРµРЅРЅС‹Р№:
+ ГЂ)select s2.sp_name, s2.sp_id from sperson s2
 where exists(select s1.sp_id from sperson s1 where s1.man_id=s2.sp_id);
 
-Б) select sp_name, sp_id from sperson
+ГЃ) select sp_name, sp_id from sperson
 where sp_id in (select man_id from sperson);
 
-5.	Найти регион, в котором самый высокий средний процент комиссионных.
+5.	РќР°Р№С‚Рё СЂРµРіРёРѕРЅ, РІ РєРѕС‚РѕСЂРѕРј СЃР°РјС‹Р№ РІС‹СЃРѕРєРёР№ СЃСЂРµРґРЅРёР№ РїСЂРѕС†РµРЅС‚ РєРѕРјРёСЃСЃРёРѕРЅРЅС‹С….
 select o.office, avg(s.comm) avg_comm
 from office o join sperson s on o.of_id=s.of_id
 group by o.office
