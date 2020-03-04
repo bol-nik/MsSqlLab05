@@ -1,0 +1,51 @@
+1.Ќапишите сложный запрос (с подзапросами), 
+возвращающий имена всех сотрудников, продававших товар в количестве ? 75 штук.
+Select s.sp_name,
+from sperson s
+where sp_id in (Select sp_id from sale group by sp_id
+having sum(qty)<75);
+
+Select s.sp_name,sum(qty) 
+from Sperson s,Sale sa
+where s.sp_id=(select sa.sp_id)
+group by s.sp_name 
+having sum(qty)<=75
+
+Select s.sp_name,sum(qty) 
+from Sperson s, Sale sa 
+where sa.sp_id=s.sp_id 
+group by s.sp_name 
+having sum(qty)<=75
+
+Select s.sp_name,sum(qty)
+from Sperson s
+right join Sale sa on sa.sp_id=s.sp_id
+group by s.sp_name
+having sum(qty)<=75
+
+2.Ќапишите сложный запрос, который 
+выводит наименовани€ только тех товаров, стоимость которых меньше средней стоимости всех видов продукции.
+Select p.p_desc
+from Product p
+where p.price<(select avg(price) from Product )
+
+
+3.Ќапишите сложный запрос дл€ определени€ сотрудников, у которых нет подчиненных
+select s2.sp_name, s2.sp_id from sperson s2
+where not exists(select s1.sp_id from sperson s1 
+where s1.man_id=s2.sp_id);
+
+Select sp_name,sp_id
+from sperson
+where sp_id not in (select man_id 
+from sperson where man_id is not null);
+
+4.ќпределите тройку сотрудников, получающих самый высокий процент комиссионных на фирме. 
+¬ывести фамилии сотрудников и процент комиссионных.
+Select s.sp_name, s.comm
+from Sperson s
+where s.comm>(select avg(comm) from Sperson)
+
+Select top 3 s.sp_name, s.comm
+from Sperson s
+order by comm desc
